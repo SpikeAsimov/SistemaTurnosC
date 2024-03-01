@@ -1,32 +1,19 @@
-# SistemaTurnosC
+# SISTEMA DE GESTIÓN DE TURNOS
 
-# SISTEMA DE GESTION DE TURNOS 
+## GESTIÓN DE TURNOS:
+Este módulo permite la creación y seguimiento de turnos de manera eficiente. Al hacer clic en el botón "Nuevo Turno", se desplegará un formulario solicitando el DNI del paciente. Si el paciente ya está registrado en el sistema, se cargarán automáticamente sus datos; de lo contrario, se podrá registrar en ese momento. Luego, se selecciona la especialidad y el médico deseado. Una vez confirmado, el turno se añade a una tabla en pantalla, mostrando una lista ordenada para facilitar la visualización y seguimiento del orden de atención.
 
-- EN EL ESQUEMA Y FUNCIONES ESTARIAN LAS SIGUIENTES MANERA:
+## CONFIGURACIÓN:
 
-## GESTION DE TURNOS: 
-ACA HABRA UN BOTON DE NUEVO TURNO SALIENDO UN FORMULARIO PIDIENDO EL DNI DEL PACIENTE, SI EL PACIENTE ESTA CARGADO TRAERA LOS DATOS DEL PACIENTE Y SI NO ESTA CARGADO QUE SE LO PUEDA CARGAR.
-SI ESTA CARGADO TRAE LOS DATOS LUEGO SELECCIONAMOS AL LA ESPECIALIDAD Y AL MEDICO.
-LUEGO SE ACEPTA EL TURNO Y ESO SE MOSTRARA EN UNA TABLA EN LISTA EN UNA PANTALLA VIENDO EN LISTA PARA SABER CUANTO LE FALTA.
-	
+- Carga de Especialidades: Permite la administración de las especialidades médicas que ofrece la clínica.
+- Carga de Médicos: Proporciona un formulario para ingresar los datos del médico, donde se selecciona la especialidad correspondiente, considerando que un especialidad puede contar con varios médicos.
 
-## CONFIGURACION:
+## INFORMES:
+Este apartado brinda la posibilidad de realizar consultas con filtros, facilitando el análisis de datos y la generación de informes específicos.
 
--	CARGA DE ESPECIALIDADES: ACA SE CARGARAN LASESPECIALIDADES QUE LA CLINICA ATIENDE
+## USUARIOS:
+Aquí se administra el acceso al sistema según el rol de cada usuario:
 
--	CARGA DEL MEDICO: ACA UN FORMULARIO CON LOS DATOS DEL MEDICO Y SE SELECCIONA LA 	ESPECIALIDAD YA QUE PUEDE HABER UNA ESPECIALIDAD CON VARIOS MEDICOS.
-
--	INFORMES: ESTA SOLAPA SERA PARA LAS CONSULTAS CON FILTROS
-
--	USUARIOS: SE CARGARAN LOS USUARIOS QUE USARAN EL SISTEMA COMO ADMINISTRADOR, 
-	ADMINISTRATIVO Y MEDICOS
-
-### LA FUNCIONES DE LOS USUARIOS SERIAN LAS SIGUIENTES:
-
--	ADMINISTRADOR: TODO.
-
--	MEDICOS: LOS MEDICOS AL LOGUEARSE SOLO VERAN EL LISTADO QUE PERTENESEN
-	 A SUS PASIENTES PARA QUE LUEGO DE ATENDERLOS LIBEREN EL TURNO
-	 Y SE LLAME AL SIGUIENTE.
-
--	ADMINISTRATIVOS: SON LOS QUE DARAN LOS TURNOS EN RECEPCION.
+- Administrador: Acceso total y capacidad de administración.
+- Médicos: Al ingresar al sistema, los médicos solo visualizarán los turnos correspondientes a sus pacientes, permitiéndoles liberar el turno después de atender al paciente para así llamar al siguiente.
+- Administrativos: Responsables de asignar los turnos en recepción, gestionando la agenda de atención.
