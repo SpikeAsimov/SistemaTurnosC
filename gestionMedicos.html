@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema de Turnos Médicos | Inicio</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables/dataTables.dataTables.css">
+  
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.html" class="nav-link">Inicio</a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link">
+      <img src="dist/img/AdminLTELogo.png" alt="TurnosMedicosLogo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">TurnosMédicos</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="dist/img/avatar4.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Arroyo Walter</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-header">Menú Principal</li>
+          <li class="nav-item">
+            <a href="gestionTurnos.html" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt"></i>
+              <p>
+                Turnos               
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="gestionPacientes.html" class="nav-link">
+              <i class="nav-icon fa fa-heartbeat"></i>
+              <p>
+                Pacientes
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="gestionMedicos.html" class="nav-link">
+              <i class="nav-icon fa fa-user-md"></i>
+              <p>
+                Medicos
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="gestionUsuarios.html" class="nav-link">
+              <i class="nav-icon fa fa-users"></i>
+              <p>
+                Usuarios
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="configuracion.html" class="nav-link">
+              <i class="nav-icon fa fa-cogs"></i>
+              <p>
+                Configuración
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-window-close"></i>
+              <p>
+                Salir
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Gestión de Médicos</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item active">Gestión de Médicos</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- /.col-md-12 -->
+          <div class="col-lg-12">
+            <div class="card card-success card-outline">
+              <div class="card-header">
+                <!-- Botón para mostrar la ventana modal -->
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalNuevoMedico">
+                  <i class="nav-icon fa fa-plus"></i> Nuevo Médico
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="container">
+                  <h2>Médicos</h2>
+                  <table id="tablaMedicos" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Especialidad</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Juan</td>
+                        <td>Pérez</td>
+                        <td>Cardiología</td>
+                        <td>123456789</td>
+                        <td>juan@example.com</td>
+                        <td>
+                          <div class="btn-group">
+                            <button class="btn btn-warning btnEditarMedico" idmedico="1" data-bs-toggle="modal" data-bs-target="#modalEditarMedico"><i class="fas fa-user-edit"></i></button>
+                            <button class="btn btn-danger btnEliminarMedico" idmedico="1"><i class="fas fa-user-times"></i></button>
+                            <a href="index.php?vista=verMedico&idMedico=1" class="btn btn-success" role="button"><i class="fas fa-eye"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Puedes agregar más filas de médicos aquí -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>                   
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      "Mejorando la salud, turno a turno."
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2024 .</strong> All rights reserved.
+  </footer>
+
+  <!-- Ventana Modal -->
+  <div class="modal fade" id="modalNuevoMedico" tabindex="-1" role="dialog" aria-labelledby="modalNuevoMedicoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalNuevoMedicoLabel">Nuevo Médico</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario dentro de la ventana modal -->
+          <form>
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del médico">
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido:</label>
+              <input type="text" class="form-control" id="apellido" placeholder="Ingrese el apellido del médico">
+            </div>
+            <div class="form-group">
+              <label for="especialidad">Especialidad:</label>
+              <select class="form-control" id="especialidad">
+                <option value="cardiologia">Cardiología</option>
+                <option value="pediatria">Pediatría</option>
+                <!-- Agrega más opciones de especialidades según sea necesario -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" class="form-control" id="telefono" placeholder="Ingrese el teléfono del médico">
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Ingrese el email del médico">
+            </div>
+            <div class="form-group">
+              <label for="direccion">Dirección:</label>
+              <input type="text" class="form-control" id="direccion" placeholder="Ingrese la dirección del médico">
+            </div>
+            <div class="form-group">
+              <label for="horarios">Días y Horarios Laborales:</label>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>L</th>
+                    <th>M</th>
+                    <th>M</th>
+                    <th>J</th>
+                    <th>V</th>
+                    <th>S</th>
+                    <th>D</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>10hs</td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                  </tr>
+                  <tr>
+                    <td>18hs</td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarNuevoMedico()">Guardar Médico</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- fullCalendar 2.2.5 -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/fullcalendar/main.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<script src="plugins/datatables/jquery.dataTables.js"></script>
+
+
+<script>
+
+$(document).ready(function() { 
+
+    $('#datatable').DataTable({
+      language: {
+        url: '//cdn.datatables.net/plug-ins/2.0.1/i18n/es-ES.json',
+    },
+    });
+  });
+
+document.addEventListener('DOMContentLoaded', function() {  
+
+  var calendarEl = document.getElementById('calendar');
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth', // Vista inicial del mes de cuadrícula de días
+    locale: 'es' // Establecer el idioma a español
+
+  });
+  calendar.render(); // Renderizar el calendario
+});
+
+
+</script>
+
+<script>
+  function guardarNuevoMedico() {
+    var nombre = document.getElementById('nombre').value;
+    var apellido = document.getElementById('apellido').value;
+    var especialidad = document.getElementById('especialidad').value;
+    var telefono = document.getElementById('telefono').value;
+    var email = document.getElementById('email').value;
+    var direccion = document.getElementById('direccion').value;
+
+    // Obtener los días y horarios laborales seleccionados
+    var horariosLaborales = [];
+    var checkboxes = document.querySelectorAll('#horarios input[type="checkbox"]');
+    checkboxes.forEach(function(checkbox) {
+      if (checkbox.checked) {
+        horariosLaborales.push(checkbox.parentNode.cellIndex); // Agregar el índice de la celda seleccionada
+      }
+    });
+
+    // Aquí puedes agregar la lógica para guardar el nuevo médico en la base de datos
+    // Por ahora, simplemente mostraremos los datos en la consola
+    console.log("Nuevo médico guardado:");
+    console.log("Nombre: " + nombre);
+    console.log("Apellido: " + apellido);
+    console.log("Especialidad: " + especialidad);
+    console.log("Teléfono: " + telefono);
+    console.log("Email: " + email);
+    console.log("Dirección: " + direccion);
+    console.log("Días y Horarios Laborales: " + horariosLaborales);
+  }
+</script>
+
+
+<script>
+  $(document).ready(function() {
+    // Inicializar el DataTable
+    var tablaMedicos = $('#tablaMedicos').DataTable({
+      language: {
+        url: '//cdn.datatables.net/plug-ins/2.0.1/i18n/es-ES.json',
+    },
+    });
+  });
+</script>
+
+
+</body>
+</html>

@@ -135,12 +135,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Configuración</h1>
+            <h1 class="m-0">Gestión de Turnos</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                <li class="breadcrumb-item active">Configuración</li>
+                <li class="breadcrumb-item active">Gestión de Turnos</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -148,81 +148,77 @@
     </div>
     <!-- /.content-header -->
 
-        <!-- Main content -->
-        <section class="content">
     <!-- Main content -->
-    <section class="content">
+    <div class="content">
       <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h4>Turnos</h4>
-
-                <p>Gestioná tus turnos</p>
+          <!-- /.col-md-6 -->
+          <div class="col-lg-7">
+            <div class="card card-warning card-outline">
+              <div class="card-header">                  
+                  <!-- Botón para mostrar la ventana modal -->
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalNuevoTurno">
+                    <i class="nav-icon fa fa-plus"></i> Nuevo Turno
+                  </button>
               </div>
-              <div class="icon">
-                <i class="fas fa-calendar-alt"></i>
+              <div class="card-body">
+                <table id="datatable" class="display" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th>Turno</th>
+                      <th>Horario</th>
+                      <th>Paciente</th>
+                      <th>Médico</th>
+                      <th>Consultorio</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>9:00 - 10:00</td>
+                      <td>Juan Pérez</td>
+                      <td>Dr. García</td>
+                      <td>Consultorio 1</td>                      
+                      <td><span class="badge bg-danger">Cancelado</span></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>14:00 - 15:00</td>
+                      <td>Marta López</td>
+                      <td>Dr. Martínez</td>
+                      <td>Consultorio 2</td>
+                      <td><span class="badge badge-info">Pendiente</span></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>19:00 - 20:00</td>
+                      <td>Luis Fernández</td>
+                      <td>Dr. Rodríguez</td>
+                      <td>Consultorio 3</td>
+                      <td><span class="badge bg-success">Confirmado</span></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <a href="gestionTurnos.html" class="small-box-footer">Ingresar <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
+            </div><!-- /.card -->
           </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h4>Pacientes</h4>               
-
-                <p>Gestioná los pacientes de tu clínica</p>
+          <!-- /.col-md-6 -->
+          <div class="col-lg-5">
+            <div class="card card-warning card-outline">
+              <div class="card-header">
+                <h3>Calendario</h3>                
               </div>
-              <div class="icon">
-                <i class="nav-icon fa fa-heartbeat"></i>
+              <div class="card-body">                
+                  <div id='calendar'></div>
               </div>
-              <a href="gestionPacientes.html" class="small-box-footer">Ingresar <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h4>Médicos</h4>
-
-                <p>Gestioná los médicos de tu clínica</p>
-              </div>
-              <div class="icon">
-                <i class="nav-icon fa fa-user-md"></i>
-              </div>
-              <a href="gestionMedicos.html" class="small-box-footer">Ingresar <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h4>Configuración</h4>
-
-                <p>Realizá los ajustes del sistema</p>
-              </div>
-              <div class="icon">
-                <i class="nav-icon fa fa-cogs"></i>
-              </div>
-              <a href="configuracion.html" class="small-box-footer">Ingresar <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
+          </div>          
         </div>
-
-        </div>
-    
-        </section>
-        <!-- /.content -->
-      </div>
-      <!-- /.content-wrapper -->
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
@@ -237,6 +233,68 @@
     <!-- Default to the left -->
     <strong>Copyright &copy; 2024 .</strong> All rights reserved.
   </footer>
+
+
+  <!-- Ventana Modal -->
+  <div class="modal fade" id="modalNuevoTurno" tabindex="-1" role="dialog" aria-labelledby="modalNuevoTurnoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalNuevoTurnoLabel">Modal Nuevo Turno</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario dentro de la ventana modal -->
+          <form>
+            <div class="form-group">
+              <label for="dni">DNI del Paciente:</label>
+              <input type="text" class="form-control" id="dni" placeholder="Ingrese DNI">
+              <small id="dniHelp" class="form-text text-muted">Ingrese el DNI del paciente para cargar sus datos automáticamente si está registrado.</small>
+            </div>
+            <div class="form-group">
+              <label for="especialidad">Seleccione Especialidad:</label>
+              <select class="form-control" id="especialidad">
+                <option value="cardiologia">Cardiología</option>
+                <option value="pediatria">Pediatría</option>
+                <!-- Agrega más opciones de especialidades según sea necesario -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="medico">Seleccione Médico:</label>
+              <select class="form-control" id="medico">
+                <option value="1">Dr. Juan Pérez</option>
+                <option value="2">Dra. María García</option>
+                <option value="3">Dr. Luis Martínez</option>
+                <!-- Agrega más opciones de médicos según sea necesario -->
+              </select>
+            </div>
+
+            <!-- Horarios disponibles -->
+            <div class="form-group">
+              <label for="horario">Seleccione Horario disponible:</label>
+              <select class="form-control" id="horario">
+                <option value="10">10:00 AM</option>
+                <option value="11">11:00 AM</option>
+                <option value="12">12:00 PM</option>
+                <option value="13">01:00 PM</option>
+                <!-- Agrega más opciones de horarios según sea necesario -->
+              </select>
+            </div>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarTurno()">Guardar Turno</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 <!-- ./wrapper -->
 
@@ -293,6 +351,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
+
+<!-- Script para guardar el turno -->
+<script>
+  function guardarTurno() {
+    var dni = document.getElementById('dni').value;
+    var especialidad = document.getElementById('especialidad').value;
+    var medico = document.getElementById('medico').value;
+
+    // Aquí puedes agregar la lógica para guardar el turno en una tabla en pantalla
+    // Por ahora, simplemente mostraremos los datos en la consola
+    console.log("Turno guardado:");
+    console.log("DNI del paciente: " + dni);
+    console.log("Especialidad: " + especialidad);
+    console.log("Médico: " + medico);
+  }
+</script>
 
 </body>
 </html>

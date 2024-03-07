@@ -135,12 +135,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Configuración</h1>
+            <h1 class="m-0">Gestión de Pacientes</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                <li class="breadcrumb-item active">Configuración</li>
+                <li class="breadcrumb-item active">Gestión de Pacientes</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -148,81 +148,60 @@
     </div>
     <!-- /.content-header -->
 
-        <!-- Main content -->
-        <section class="content">
     <!-- Main content -->
-    <section class="content">
+    <div class="content">
       <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h4>Turnos</h4>
-
-                <p>Gestioná tus turnos</p>
+          <!-- /.col-md-12 -->
+          <div class="col-lg-12">
+            <div class="card card-danger card-outline">
+              <div class="card-header">
+                <!-- Botón para mostrar la ventana modal -->
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalNuevoPaciente">
+                  <i class="nav-icon fa fa-plus"></i> Nuevo Paciente
+                </button>
               </div>
-              <div class="icon">
-                <i class="fas fa-calendar-alt"></i>
+              <div class="card-body">
+                <div class="container">
+                  <h2>Pacientes</h2>
+                  <table id="tablaPacientes" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Juan</td>
+                        <td>Pérez</td>
+                        <td>123456789</td>
+                        <td>juan@example.com</td>
+                        <td>
+                          <div class="btn-group">
+                            <button class="btn btn-warning btnEditarPaciente" idpaciente="1" data-bs-toggle="modal" data-bs-target="#modalEditarPaciente"><i class="fas fa-user-edit"></i></button>
+                            <button class="btn btn-danger btnEliminarPaciente" idpaciente="1"><i class="fas fa-user-times"></i></button>
+                            <a href="index.php?vista=verPaciente&idPaciente=1" class="btn btn-success" role="button"><i class="fas fa-eye"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Puedes agregar más filas de pacientes aquí -->
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <a href="gestionTurnos.html" class="small-box-footer">Ingresar <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h4>Pacientes</h4>               
-
-                <p>Gestioná los pacientes de tu clínica</p>
-              </div>
-              <div class="icon">
-                <i class="nav-icon fa fa-heartbeat"></i>
-              </div>
-              <a href="gestionPacientes.html" class="small-box-footer">Ingresar <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h4>Médicos</h4>
-
-                <p>Gestioná los médicos de tu clínica</p>
-              </div>
-              <div class="icon">
-                <i class="nav-icon fa fa-user-md"></i>
-              </div>
-              <a href="gestionMedicos.html" class="small-box-footer">Ingresar <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h4>Configuración</h4>
-
-                <p>Realizá los ajustes del sistema</p>
-              </div>
-              <div class="icon">
-                <i class="nav-icon fa fa-cogs"></i>
-              </div>
-              <a href="configuracion.html" class="small-box-footer">Ingresar <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
+          </div>          
         </div>
-
-        </div>
-    
-        </section>
-        <!-- /.content -->
-      </div>
-      <!-- /.content-wrapper -->
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
@@ -237,6 +216,59 @@
     <!-- Default to the left -->
     <strong>Copyright &copy; 2024 .</strong> All rights reserved.
   </footer>
+
+
+  <!-- Ventana Modal -->
+  <div class="modal fade" id="modalNuevoPaciente" tabindex="-1" role="dialog" aria-labelledby="modalNuevoPacienteLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalNuevoPacienteLabel">Nuevo Paciente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario dentro de la ventana modal -->
+          <form>
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre">
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido:</label>
+              <input type="text" class="form-control" id="apellido" placeholder="Ingrese el apellido">
+            </div>
+            <div class="form-group">
+              <label for="dni">DNI:</label>
+              <input type="text" class="form-control" id="dni" placeholder="Ingrese el DNI">
+            </div>
+            <div class="form-group">
+              <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+              <input type="date" class="form-control" id="fechaNacimiento">
+            </div>
+            <div class="form-group">
+              <label for="obraSocial">Obra Social:</label>
+              <input type="text" class="form-control" id="obraSocial" placeholder="Ingrese la obra social">
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" class="form-control" id="telefono" placeholder="Ingrese el teléfono">
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Ingrese el email">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarNuevoPaciente()">Guardar Paciente</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 <!-- ./wrapper -->
 
@@ -291,8 +323,39 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+function guardarNuevoPaciente() {
+    var nombre = document.getElementById('nombre').value;
+    var apellido = document.getElementById('apellido').value;
+    var dni = document.getElementById('dni').value;
+    var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+    var obraSocial = document.getElementById('obraSocial').value;
+    var telefono = document.getElementById('telefono').value;
+    var email = document.getElementById('email').value;
+
+    // Aquí puedes agregar la lógica para guardar el nuevo paciente en la base de datos
+    // Por ahora, simplemente mostraremos los datos en la consola
+    console.log("Nuevo paciente guardado:");
+    console.log("Nombre: " + nombre);
+    console.log("Apellido: " + apellido);
+    console.log("DNI: " + dni);
+    console.log("Fecha de Nacimiento: " + fechaNacimiento);
+    console.log("Obra Social: " + obraSocial);
+    console.log("Teléfono: " + telefono);
+    console.log("Email: " + email);
+  }
+
 </script>
 
+<script>
+  $(document).ready(function() {
+    // Inicializar el DataTable
+    var tablaPacientes = $('#tablaPacientes').DataTable({
+      language: {
+        url: '//cdn.datatables.net/plug-ins/2.0.1/i18n/es-ES.json',
+    },
+    });
+  });
+</script>
 
 </body>
 </html>
