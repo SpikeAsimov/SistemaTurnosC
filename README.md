@@ -17,3 +17,43 @@ Aquí se administra el acceso al sistema según el rol de cada usuario:
 - Administrador: Acceso total y capacidad de administración.
 - Médicos: Al ingresar al sistema, los médicos solo visualizarán los turnos correspondientes a sus pacientes, permitiéndoles liberar el turno después de atender al paciente para así llamar al siguiente.
 - Administrativos: Responsables de asignar los turnos en recepción, gestionando la agenda de atención.
+
+
+# SideBar
+-   Turnos
+-   Pacientes
+-   Medicos
+-   Usuarios
+-   Configuración
+-   Salir
+
+# Turno
+- Turno
+- Horario
+- Paciente
+- Medico
+- Consultorio
+- Estado
+
+# Add Paciente
+-   Nombre - Apellido
+-   DNI    - Fecha de Nacimiento
+-   Obra Social
+-   Telefono - Email
+
+# Add Medico
+-   Nombre - Apellido
+-   Especialidad  - Telefono
+-   Email   -   Dirección
+    -   Dias y Horarios Laborales
+
+    L   M   M   J   V   S   D
+    10hs
+    18hs
+
+
+## Add Usuario
+-   Nombre - Apellido
+-   Usuario - Pass
+-   Telefono  - Email
+- ROL
