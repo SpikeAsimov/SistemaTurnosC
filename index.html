@@ -52,7 +52,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+            <button type="submit" class="btn btn-primary btn-block" onclick="redireccionar()">Ingresar</button>
           </div>
           <!-- /.col -->
         </div>
@@ -71,5 +71,14 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+
+
+<script>
+  function redireccionar() {
+    // Redireccionar a la página deseada
+    window.location.href = "panelControl.html";
+  }
+</script>
+
 </body>
 </html>
